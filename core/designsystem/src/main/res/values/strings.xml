@@ -1,42 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
 
     <string name="app_name">Hafthashtad</string>
 
 
-    <string name="setting">Settings</string>
-    <string name="hafthashtad_history">History</string>
-
     <string name="cancel">Cancel</string>
-    <string name="ok">OK</string>
 
-    <string name="loading">Loading …</string>
-    <string name="language">Language</string>
     <string name="theme">Theme</string>
-    <string name="check_your_internet">Please check your device connected to Internet.</string>
-    <string name="no_internet_connection">No Internet Connection</string>
-    <string name="error_occurred">Error</string>
-    <string name="close">Close</string>
-    <string name="retry">Retry</string>
 
-    <string name="english">English</string>
-    <string name="arabic">العربية</string>
-    <string name="indonesian">Indonesian</string>
-    <string name="portuguese">Português</string>
-    <string name="russian">Русский</string>
-    <string name="german">Deutsch</string>
-    <string name="turkish">Türkçe</string>
-    <string name="chinese">中国人</string>
-    <string name="hindi">भारतीय</string>
-    <string name="spanish">Español</string>
-    <string name="france">Français</string>
-    <string name="korean">한국어</string>
-    <string name="italy">Italiano</string>
-    <string name="japanese">Japanese</string>
-
-
-    <string name="privacy_policy">Privacy Policy</string>
-    <string name="terms_of_service">Terms of Service</string>
 
     <string name="system_default">System default</string>
     <string name="light">Light</string>
@@ -44,78 +15,6 @@
 
     <string name="refresh">Refresh</string>
 
-    <string name="credit">Credit</string>
-    <string name="purchase_credit">Purchase Credit</string>
-    <string name="restore">Restore Purchase</string>
-    <string name="by_purchasing_the_package_you_are_agree_to_the_hafthashtad">"By purchasing the package, you are agree to the Hafthashtad "</string>
-
-    <string name="and">" and "</string>
-    <string name="restore_completed">Restore Completed</string>
-    <string name="order">Order</string>
-
-    <string name="buy_more_coin">Buy more coin</string>
-
-    <string name="get_product">GET</string>
-    <string name="special_offer_title">25% discount</string>
-    <string name="popular_product_title">Popular</string>
-    <string name="successful_purchase">Successful Purchase</string>
-
-    <string name="successful_purchase_description">you received your coins</string>
-    <string name="later">later</string>
-    <string name="lets_go">Let\'s Go</string>
-
-    <string name="reward_body">We\'d love your feedback! Leave a rating and review for Hafthashtad on Google Play and receive free Proxy as a thank-you from us. ❤️</string>
-
-    <string name="gift">Gift</string>
-
-    <string name="powered_by_hafthashtad">Powered by Hafthashtad With ♥️</string>
     <string name="home">Home</string>
-
-    <string name="downloading_start">Download Initiation</string>
-    <string name="update_failed">Update Unsuccessful</string>
-    <string name="new_app_ready">New Release Available</string>
-    <string name="restart">Reboot Required</string>
-
-    <string name="country_list">Country</string>
-    <string name="country_detail">Details</string>
-    <string name="active">Active</string>
-    <string name="archived">Archived</string>
-    <string name="copy">Copy</string>
-    <string name="ip">Ip</string>
-    <string name="type">Type</string>
-    <string name="username">Username</string>
-    <string name="password">Password</string>
-    <string name="next">Next</string>
-    <string name="hafthashtad_onboarding_1_title">Super Fast Connection</string>
-    <string name="hafthashtad_onboarding_1_desc">Dedicated Proxy with Speeds up to 1 Gb/s</string>
-    <string name="hafthashtad_onboarding_2_title">Security, Privacy and Anonymity</string>
-    <string name="hafthashtad_onboarding_2_desc">Enhancing Online Anonymity and Preventing Data Tracking while Bypassing Geographical Restrictions</string>
-    <string name="hafthashtad_onboarding_3_title">Your All-In-One Proxy</string>
-    <string name="hafthashtad_onboarding_3_desc">Stream Videos, Browse the Web, Game, and Overcome Restrictions</string>
-
-    <string name="free_proxy">Get Free Proxy</string>
-
-    <string name="connection_info">Connection Info</string>
-    <string name="get_proxy">Get %s</string>
-    <string name="version">"Version: "</string>
-    <string name="http_port">Http Port</string>
-    <string name="socks_port">Socks Port</string>
-    <string name="dedicated">Dedicated 1 Gb/s channel</string>
-    <string name="proxy_in_72">Proxies in 72+ countries</string>
-    <string name="unlimited_band">Unlimited bandwidth</string>
-    <string name="flexible_price">Flexible pricing</string>
-    <string name="uptime_99">99.99% uptime</string>
-
-    <string name="no_activated">You haven\'t purchased any proxies at this time.</string>
-
-    <string name="support">Support</string>
-    <string name="shop">Shop</string>
-    <string name="waiting_for_build">We\'re building your requested proxy server.</string>
-
-    <string name="state">"State: "</string>
-    <string name="duration">"Duration: "</string>
-    <string name="purchase_date">"Purchase Date: "</string>
-    <string name="you_are_going_to_buy">You are going to buy</string>
-    <string name="your_proxy_going_to_ready">Your proxy details will show up on the history page 5 to 10 minutes after you order.</string>
 
 </resources>
