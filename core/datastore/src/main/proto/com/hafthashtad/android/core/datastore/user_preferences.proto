@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+import "com/hafthashtad/android/core/datastore/dark_theme_config.proto";
+import "com/hafthashtad/android/core/datastore/theme_brand.proto";
+import "com/hafthashtad/android/core/datastore/login.proto";
+
+option java_package = "com.hafthashtad.android.core.datastore";
+option java_multiple_files = true;
+
+message UserPreferences {
+  ThemeBrandProto theme_brand = 1;
+  DarkThemeConfigProto dark_theme_config = 2;
+  Login login = 3;
+  string user_id = 4;
+}
