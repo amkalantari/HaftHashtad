@@ -114,10 +114,10 @@ fun CenterTitleWithIconsTopAppBarPreview() {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun LeftTitleWithIconsTopAppBar(
+fun LeftTitleTopAppBar(
+    modifier: Modifier = Modifier,
     title: String,
     actions: @Composable RowScope.() -> Unit = {},
-    modifier: Modifier = Modifier,
     colors: TopAppBarColors = TopAppBarDefaults.centerAlignedTopAppBarColors(),
 ) {
     TopAppBar(
@@ -202,27 +202,6 @@ fun TopAppBarWithLeftTitle(title: String) {
     )
 }
 
-//@OptIn(ExperimentalMaterial3Api::class)
-//@Preview(
-//    name = "TopAppBarWithLeftTitle",
-//    uiMode = Configuration.UI_MODE_NIGHT_NO,
-//)
-//@Preview(
-//    name = "TopAppBarWithLeftTitle",
-//    uiMode = Configuration.UI_MODE_NIGHT_YES,
-//)
-//@Composable
-//fun TopAppBarWithLeftTitlePreview() {
-//    HafthashtadTheme {
-//        Surface {
-//            TopAppBarWithLeftTitle(
-//                title = "amiir"
-//            )
-//        }
-//    }
-//}
-
-
 @OptIn(ExperimentalMaterial3Api::class)
 @Preview(
     name = "Top App Bar",
@@ -260,7 +239,7 @@ fun HafthashtadTopAppBarWithTitlePreview() {
 fun HafthashtadTopAppBarPreview() {
     HafthashtadTheme {
         Surface {
-            LeftTitleWithIconsTopAppBar(
+            LeftTitleTopAppBar(
                 title = "amiir",
                 actions = {
 

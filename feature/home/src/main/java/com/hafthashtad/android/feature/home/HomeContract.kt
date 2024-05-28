@@ -21,10 +21,7 @@ class HomeContract {
     }
 
     sealed interface Event : ViewEvent {
-
-        data object Search : Event
-
-        data object Refresh : Event
+        data class Search(val query: String) : Event
 
     }
 

@@ -9,54 +9,59 @@ import com.hafthashtad.android.feature.home.HomeContract.Effect
 import com.hafthashtad.android.feature.home.HomeContract.Event
 import com.hafthashtad.android.feature.home.HomeContract.UiState
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
-import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
 import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    private val getProductsUseCase: GetProductsUseCase
+    getProductsUseCase: GetProductsUseCase
 ) : BaseViewModel<Event, UiState, Effect>() {
 
-    init {
-        getProductsList()
-    }
+    private val _query = MutableStateFlow("")
 
-    private fun getProductsList() {
-        getProductsUseCase().asResult().map { res ->
-            when (res) {
-                is Result.Error -> {
-                    setEffect {
-                        Effect.ShowError(res.errorMsg)
-                    }
-                    UiState.Failure(res.errorMsg)
-                }
+    val query: StateFlow<String> = _query
 
-                Result.Loading -> {
-                    UiState.Loading
+    val productList = combine(
+        getProductsUseCase().asResult(),
+        _query
+    ) { res, query ->
+        when (res) {
+            is Result.Error -> {
+                setEffect {
+                    Effect.ShowError(res.errorMsg)
                 }
-
-                is Result.Success -> {
-                    UiState.Success(res.data)
-                }
+                UiState.Failure(res.errorMsg)
             }
-        }.stateIn(
-            viewModelScope,
-            SharingStarted.WhileSubscribed(5_00),
-            HomeContract.initValue
-        ).collectAsUIState()
-    }
+
+            Result.Loading -> {
+                UiState.Loading
+            }
+
+            is Result.Success -> {
+                UiState.Success(res.data.filter {
+                    it.title.contains(query, ignoreCase = true)
+                })
+            }
+        }
+    }.stateIn(
+        viewModelScope,
+        SharingStarted.WhileSubscribed(5_00),
+        HomeContract.initValue
+    )
 
     override fun setInitialViewState() = HomeContract.initValue
 
     override fun handleEvents(event: Event) = when (event) {
-        Event.Search -> {
-
+        is Event.Search -> {
+            onQueryChanged(event.query)
         }
+    }
 
-        Event.Refresh -> {
-            getProductsList()
-        }
+    private fun onQueryChanged(query: String) {
+        _query.value = query
     }
 }

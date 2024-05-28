@@ -14,34 +14,30 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.MutableState
-import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.text.input.ImeAction
-import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
 
 
-@OptIn(ExperimentalComposeUiApi::class)
 @Composable
-fun HafthashtadSearchBar(state: MutableState<TextFieldValue>) {
+fun HafthashtadSearchBar(value: String, onQueryChange: (String) -> Unit) {
     val keyboardController = LocalSoftwareKeyboardController.current
     val focusManager = LocalFocusManager.current
     TextField(
-        value = state.value,
-        onValueChange = { state.value = it },
+        value = value,
+        onValueChange = onQueryChange,
         label = { Text("Search") },
         leadingIcon = { Icon(Icons.Filled.Search, contentDescription = null) },
         trailingIcon = {
-            if (state.value != TextFieldValue("")) {
+            if (value != "") {
                 IconButton(
                     onClick = {
                         keyboardController?.hide()
                         focusManager.clearFocus()
-                        state.value = TextFieldValue("")
+                        onQueryChange.invoke("")
                     }
                 ) {
                     Icon(
