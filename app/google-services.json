@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "853224610746",
-    "project_id": "hafthashtad-project",
-    "storage_bucket": "hafthashtad-project.appspot.com"
+    "project_number": "702779324734",
+    "project_id": "hafthashtad-d721b",
+    "storage_bucket": "hafthashtad-d721b.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:853224610746:android:78a75c3f210ad0c45d5b83",
+        "mobilesdk_app_id": "1:702779324734:android:426ee30bb2d72c6022946f",
         "android_client_info": {
           "package_name": "com.hafthashtad.android"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyA9cmAxvi7qo9DM-xLEM8JVihREc3ZlyUs"
+          "current_key": "AIzaSyBN1s54BRDfOEFMvCf1yEYiTWAZzsr43i0"
         }
       ],
       "services": {

@@ -2,11 +2,15 @@ package com.hafthashtad.android.ui
 
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.WindowInsetsSides
+import androidx.compose.foundation.layout.consumeWindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.only
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.foundation.layout.size
-import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -25,8 +29,6 @@ import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hierarchy
 import com.hafthashtad.android.core.designsystem.component.HafthashtadNavigationBar
 import com.hafthashtad.android.core.designsystem.component.HafthashtadNavigationBarItem
-import com.hafthashtad.android.core.designsystem.component.HafthashtadNavigationRail
-import com.hafthashtad.android.core.designsystem.component.HafthashtadNavigationRailItem
 import com.hafthashtad.android.core.designsystem.icon.HafthashtadIcon
 import com.hafthashtad.android.core.designsystem.theme.HafthashtadBackground
 import com.hafthashtad.android.navigation.HafthashtadNavHost
@@ -50,7 +52,6 @@ fun HafthashtadApp(
 
 @OptIn(
     ExperimentalComposeUiApi::class,
-    ExperimentalMaterial3Api::class,
 )
 @Composable
 private fun HafthashtadAppContent(
@@ -81,62 +82,20 @@ private fun HafthashtadAppContent(
         Row(
             Modifier
                 .fillMaxSize()
-                .padding(padding)
-        ) {
-
-            if (appState.shouldShowNavRail) {
-                val destination = appState.currentTopLevelDestination
-                if (destination != null) {
-                    HafthashtadNavRail(
-                        destinations = appState.topLevelDestinations(),
-                        onNavigateToDestination = appState::navigateToTopLevelDestination,
-                        currentDestination = appState.currentDestination,
-                        modifier = Modifier.safeDrawingPadding()
+                .consumeWindowInsets(padding)
+                .windowInsetsPadding(
+                    WindowInsets.safeDrawing.only(
+                        WindowInsetsSides.Horizontal
                     )
-                }
-            }
-
+                )
+        ) {
             HafthashtadNavHost(
                 navController = appState.navController,
                 onBackClick = appState::onBackClick,
                 startDestination = startDestination,
-            )
-        }
-    }
-}
-
-@Composable
-private fun HafthashtadNavRail(
-    destinations: List<TopLevelDestination>,
-    onNavigateToDestination: (TopLevelDestination) -> Unit,
-    currentDestination: NavDestination?,
-    modifier: Modifier = Modifier,
-) {
-    HafthashtadNavigationRail(modifier = modifier) {
-        destinations.forEach { destination ->
-            val selected = currentDestination.isTopLevelDestinationInHierarchy(destination)
-            HafthashtadNavigationRailItem(
-                selected = selected,
-                onClick = { onNavigateToDestination(destination) },
-                icon = {
-                    val icon = if (selected) {
-                        destination.selectedIcon
-                    } else {
-                        destination.unselectedIcon
-                    }
-                    when (icon) {
-                        is HafthashtadIcon.ImageVectorIcon -> Icon(
-                            imageVector = icon.imageVector,
-                            contentDescription = null
-                        )
-
-                        is HafthashtadIcon.DrawableResourceIcon -> Icon(
-                            painter = painterResource(id = icon.id),
-                            contentDescription = null
-                        )
-                    }
-                },
-                label = { Text(stringResource(destination.iconTextId)) }
+                modifier = Modifier
+                    .padding(padding)
+                    .safeDrawingPadding()
             )
         }
     }

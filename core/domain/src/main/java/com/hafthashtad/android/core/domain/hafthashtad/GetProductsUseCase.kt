@@ -9,10 +9,10 @@ class GetProductsUseCase @Inject constructor(
     private val productsRepository: RemoteProductsRepository
 ) {
     /**
-     * Returns available product.
+     * Returns available products.
      *
      */
-    operator fun invoke(): Flow<Products> {
+    operator fun invoke(): Flow<List<Products>> {
         return productsRepository.products()
     }
 }

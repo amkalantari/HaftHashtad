@@ -11,7 +11,7 @@ class HafthashtadRetrofitNetworkDataSource @Inject constructor(
     private val networkApi: HafthashtadNetworkApi
 ) : HafthashtadNetworkDataSource {
 
-    override suspend fun products(): NetworkProducts =
+    override suspend fun products(): List<NetworkProducts> =
         networkApi.products()
 
 }

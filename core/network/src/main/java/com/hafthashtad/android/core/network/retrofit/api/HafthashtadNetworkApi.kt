@@ -6,5 +6,5 @@ import retrofit2.http.GET
 interface HafthashtadNetworkApi {
 
     @GET("/products")
-    suspend fun products(): NetworkProducts
+    suspend fun products(): List<NetworkProducts>
 }

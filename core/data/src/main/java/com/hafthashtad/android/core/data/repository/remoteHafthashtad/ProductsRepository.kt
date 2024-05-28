@@ -5,6 +5,6 @@ import kotlinx.coroutines.flow.Flow
 
 interface ProductsRepository {
 
-    fun products(): Flow<Products>
+    fun products(): Flow<List<Products>>
 
 }

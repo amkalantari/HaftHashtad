@@ -48,9 +48,6 @@ class HafthashtadAppState(
         get() = windowSizeClass.widthSizeClass == WindowWidthSizeClass.Compact ||
                 windowSizeClass.heightSizeClass == WindowHeightSizeClass.Compact
 
-    val shouldShowNavRail: Boolean
-        get() = !shouldShowBottomBar
-
     fun topLevelDestinations(): List<TopLevelDestination> {
         return TopLevelDestination.entries
     }

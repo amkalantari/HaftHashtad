@@ -1,5 +1,6 @@
 package com.hafthashtad.android.feature.home
 
+import com.hafthashtad.android.core.data.model.Products
 import com.hafthashtad.android.core.ui.ViewEvent
 import com.hafthashtad.android.core.ui.ViewSideEffect
 import com.hafthashtad.android.core.ui.ViewState
@@ -12,7 +13,7 @@ class HomeContract {
 
     sealed interface UiState : ViewState {
         data class Success(
-            val data: String
+            val data: List<Products>
         ) : UiState
 
         data object Loading : UiState

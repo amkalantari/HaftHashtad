@@ -35,6 +35,13 @@ data class NetworkRating(
     val count: Int
 )
 
+fun List<NetworkProducts>.asExternalModel(): List<Products> {
+    return this.map {
+        it.asExternalModel()
+    }
+}
+
+
 fun NetworkProducts.asExternalModel() = Products(
     id = id,
     title = title,

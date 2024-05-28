@@ -5,6 +5,6 @@ import com.hafthashtad.android.core.network.retrofit.model.hafthashtad.NetworkPr
 
 interface HafthashtadNetworkDataSource {
 
-    suspend fun products(): NetworkProducts
+    suspend fun products(): List<NetworkProducts>
 
 }

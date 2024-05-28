@@ -16,7 +16,7 @@ class RemoteProductsRepository @Inject constructor(
     private val network: HafthashtadNetworkDataSource,
 ) : ProductsRepository {
 
-    override fun products(): Flow<Products> = flow {
+    override fun products(): Flow<List<Products>> = flow {
         val products = network.products().asExternalModel()
         emit(products)
     }.flowOn(ioDispatcher)
