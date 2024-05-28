@@ -2,10 +2,9 @@ package com.hafthashtad.android.core.designsystem.icon
 
 import androidx.annotation.DrawableRes
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.ArrowDropDown
-import androidx.compose.material.icons.rounded.ArrowDropUp
 import androidx.compose.material.icons.rounded.Circle
-import androidx.compose.material.icons.rounded.Language
+import androidx.compose.material.icons.rounded.KeyboardArrowDown
+import androidx.compose.material.icons.rounded.KeyboardArrowUp
 import androidx.compose.ui.graphics.vector.ImageVector
 import com.hafthashtad.android.core.designsystem.R
 
@@ -15,17 +14,14 @@ import com.hafthashtad.android.core.designsystem.R
 object HafthashtadIcons {
     val Circle = Icons.Rounded.Circle
 
-    val Browser = Icons.Rounded.Language
-
     val Back = R.drawable.arrow_back_24px
 
     val Arrow = R.drawable.arrow
 
-    val ArrowDropDown = Icons.Rounded.ArrowDropDown
-    val ArrowDropUp = Icons.Rounded.ArrowDropUp
+    val KeyboardArrowUp = Icons.Rounded.KeyboardArrowUp
+    val KeyboardArrowDown = Icons.Rounded.KeyboardArrowDown
 
     val Add = R.drawable.add_24px
-    val Minus = R.drawable.baseline_minimize_24
 }
 
 /**
