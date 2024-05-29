@@ -1,21 +1,15 @@
 package com.hafthashtad.android.core.data.common.result
 
 import android.database.sqlite.SQLiteConstraintException
-import android.util.Log
 import com.hafthashtad.android.core.data.common.result.Result.Loading
 import com.hafthashtad.android.core.data.common.result.Result.Success
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onStart
-import kotlinx.serialization.json.Json
-import okhttp3.ResponseBody
 import retrofit2.HttpException
 import java.io.EOFException
 import java.io.IOException
-
-
-private const val DEFAULT_ERROR = "Unknown error"
 
 sealed interface Result<out T> {
     data class Success<T>(val data: T) : Result<T>
@@ -47,7 +41,7 @@ fun handleError(t: Throwable?): Result.Error {
         is SQLiteConstraintException -> Result.Error(errorMsg = "SQL Exception", exception = t)
         is HttpException -> {
             Result.Error(
-                errorMsg = getErrorMessage(t.response()?.errorBody()),
+                errorMsg = t.response()?.errorBody().toString(),
                 exception = t
             )
         }
@@ -56,27 +50,4 @@ fun handleError(t: Throwable?): Result.Error {
 
     }
 
-}
-
-
-/**
- * [getErrorMessage] is responsible for fetching error message from error body
- * which is happening in the response of api call.
- * Error Format :
- *{"message":"","code":0,"label":""}
- */
-private fun getErrorMessage(errorBody: ResponseBody?): String {
-    return try {
-        val errorResponseMessage = errorBody?.string()
-            ?.let { Json.decodeFromString<ErrorResponseMessage>(it) }
-
-        return errorResponseMessage?.message.let {
-            if (it.isNullOrEmpty()) {
-                DEFAULT_ERROR
-            } else it
-        }
-    } catch (e: Exception) {
-        Log.e("parseException", e.message.toString())
-        DEFAULT_ERROR
-    }
 }

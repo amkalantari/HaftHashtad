@@ -21,7 +21,6 @@ dependencies {
     implementation(project(":core:util"))
     implementation(project(":core:model"))
     implementation(project(":core:datastore"))
-    implementation(project(":core:database"))
 
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.kotlinx.serialization.json)

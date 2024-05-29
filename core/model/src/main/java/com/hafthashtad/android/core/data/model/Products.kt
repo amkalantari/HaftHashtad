@@ -4,7 +4,6 @@ package com.hafthashtad.android.core.data.model
  * External data layer representation of an Hafthashtad Products
  */
 
-
 data class Products(
     val id: Int,
     val title: String,

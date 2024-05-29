@@ -37,7 +37,6 @@ include(":core:common")
 include(":core:model")
 include(":core:network")
 include(":core:datastore")
-include(":core:database")
 include(":core:data")
 include(":core:domain")
 

@@ -2,7 +2,6 @@ package com.hafthashtad.android.core.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.hafthashtad.android.core.designsystem.component.SnackBarType
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -73,11 +72,3 @@ interface ViewState
 interface ViewEvent
 
 interface ViewSideEffect
-
-open class BaseShowSnack constructor(
-    open val type: SnackBarType,
-    open val title: String,
-    open val message: String,
-    open val positiveTitle: String,
-    open val negativeTitle: String? = null
-)

@@ -1,4 +1,4 @@
-package com.hafthashtad.android.core.network.retrofit.model.hafthashtad
+package com.hafthashtad.android.core.network.retrofit.model
 
 import com.hafthashtad.android.core.data.model.Products
 import com.hafthashtad.android.core.data.model.Rating

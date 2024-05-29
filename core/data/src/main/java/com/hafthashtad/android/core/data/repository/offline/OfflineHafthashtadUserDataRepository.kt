@@ -23,13 +23,4 @@ class OfflineHafthashtadUserDataRepository @Inject constructor(
 
     override fun getDarkThemeConfig(): Flow<DarkThemeConfig> =
         hafthashtadPreferencesDataSource.getDarkThemeConfig()
-
-    override suspend fun clearUserData() =
-        hafthashtadPreferencesDataSource.clearUserData()
-
-    override suspend fun hasLogin() =
-        hafthashtadPreferencesDataSource.hasLogin()
-
-    override suspend fun getAccessToken(): String? =
-        hafthashtadPreferencesDataSource.getAccessToken()
 }

@@ -23,16 +23,4 @@ interface HafthashtadUserDataRepository {
     suspend fun setDarkThemeConfig(darkThemeConfig: DarkThemeConfig)
 
     fun getDarkThemeConfig(): Flow<DarkThemeConfig>
-
-    /**
-     * Clears the user's data
-     */
-    suspend fun clearUserData()
-
-    /**
-     * Checks the user has login data
-     */
-    suspend fun hasLogin(): Boolean
-
-    suspend fun getAccessToken(): String?
 }

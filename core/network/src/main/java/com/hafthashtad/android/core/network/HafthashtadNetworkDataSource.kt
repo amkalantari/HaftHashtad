@@ -1,6 +1,6 @@
 package com.hafthashtad.android.core.network
 
-import com.hafthashtad.android.core.network.retrofit.model.hafthashtad.NetworkProducts
+import com.hafthashtad.android.core.network.retrofit.model.NetworkProducts
 
 
 interface HafthashtadNetworkDataSource {
