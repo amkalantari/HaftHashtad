@@ -5,8 +5,6 @@ Hafthashtad App
 
 **Hafthashtad** is a fully functional Android app built entirely with Kotlin and Jetpack Compose.
 
-The app is currently in development. The `prodRelease` variant is [available on the Play Store](https://play.google.com/store/apps/details?id=com.google.samples.apps.nowinandroid).
-
 # Features
 
 **Hafthashtad** displays content from the
