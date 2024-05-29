@@ -29,8 +29,6 @@ setup.
 
 Current list of convention plugins:
 
-- [`hafthashtad.spotless`](convention/src/main/kotlin/SpotlessConventionPlugin.kt):
-  Configures spotless. 
 - [`hafthashtad.android.application`](convention/src/main/kotlin/AndroidApplicationConventionPlugin.kt),
   [`hafthashtad.android.library`](convention/src/main/kotlin/AndroidLibraryConventionPlugin.kt),
   [`hafthashtad.android.test`](convention/src/main/kotlin/AndroidTestConventionPlugin.kt):
