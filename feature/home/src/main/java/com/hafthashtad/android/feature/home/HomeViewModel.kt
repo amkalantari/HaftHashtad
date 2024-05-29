@@ -3,6 +3,7 @@ package com.hafthashtad.android.feature.home
 import androidx.lifecycle.viewModelScope
 import com.hafthashtad.android.core.data.common.result.Result
 import com.hafthashtad.android.core.data.common.result.asResult
+import com.hafthashtad.android.core.data.model.Products
 import com.hafthashtad.android.core.domain.hafthashtad.GetProductsUseCase
 import com.hafthashtad.android.core.ui.BaseViewModel
 import com.hafthashtad.android.feature.home.HomeContract.Effect
@@ -14,19 +15,23 @@ import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    getProductsUseCase: GetProductsUseCase
+    private val getProductsUseCase: GetProductsUseCase
 ) : BaseViewModel<Event, UiState, Effect>() {
 
     private val _query = MutableStateFlow("")
 
     val query: StateFlow<String> = _query
 
+    private val _productListState: MutableStateFlow<Result<List<Products>>> =
+        MutableStateFlow(Result.Loading)
+
     val productList = combine(
-        getProductsUseCase().asResult(),
+        _productListState,
         _query
     ) { res, query ->
         when (res) {
@@ -55,13 +60,29 @@ class HomeViewModel @Inject constructor(
 
     override fun setInitialViewState() = HomeContract.initValue
 
+    init {
+        fetchProducts()
+    }
+
+    fun fetchProducts() {
+        viewModelScope.launch {
+            getProductsUseCase().asResult().collect {
+                _productListState.emit(it)
+            }
+        }
+    }
+
     override fun handleEvents(event: Event) = when (event) {
         is Event.Search -> {
             onQueryChanged(event.query)
         }
+
+        Event.Refresh -> {
+            fetchProducts()
+        }
     }
 
-    private fun onQueryChanged(query: String) {
+    fun onQueryChanged(query: String) {
         _query.value = query
     }
 }

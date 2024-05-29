@@ -9,5 +9,6 @@
     <string name="dark">Dark</string>
     <string name="refresh">Refresh</string>
     <string name="home">Home</string>
+    <string name="retry">Retry</string>
 
 </resources>

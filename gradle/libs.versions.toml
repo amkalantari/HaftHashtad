@@ -4,7 +4,7 @@ androidDesugarJdkLibs = "2.0.4"
 androidGradlePlugin = "8.1.4"
 androidxActivity = "1.9.0"
 androidxAppCompat = "1.6.1"
-androidxComposeBom = "2024.04.01"
+androidxComposeBom = "2024.05.00"
 androidxComposeCompiler = "1.5.3"
 androidxComposeRuntimeTracing = "1.0.0-beta01"
 androidxConstraintLayoutCompose = "1.0.1"
@@ -58,9 +58,15 @@ yandex = "5.0.1"
 sentry = "6.13.1"
 gsm = "4.4.1"
 gauth = "21.1.0"
+junit = "4.13.2"
+androidx-test-ext-junit = "1.1.5"
+espresso-core = "3.5.1"
+mockK = "1.13.10"
 
 
 [libraries]
+androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-ext-junit" }
+espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso-core" }
 accompanist-flowlayout = { group = "com.google.accompanist", name = "accompanist-flowlayout", version.ref = "accompanist" }
 accompanist-systemuicontroller = { group = "com.google.accompanist", name = "accompanist-systemuicontroller", version.ref = "accompanist" }
 accompanist-swiperefresh = { group = "com.google.accompanist", name = "accompanist-swiperefresh", version.ref = "accompanist" }
@@ -143,6 +149,13 @@ lottie-compose = { group = "com.airbnb.android", name = "lottie-compose", versio
 exoplayer = { group = "androidx.media3", name = "media3-exoplayer", version.ref = "exoplayer" }
 exoplayer-ui = { group = "androidx.media3", name = "media3-ui", version.ref = "exoplayer" }
 exoplayer-google = { group = "com.google.android.exoplayer", name = "exoplayer", version.ref = "exoplayerGoogle" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+io-mockK = {group= "io.mockk",name = "mockk",version.ref = "mockK"}
+kotlinx-coroutine-test = { group = "org.jetbrains.kotlinx",name = "kotlinx-coroutines-test",version.ref = "kotlinxCoroutines" }
+ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest", version = "1.6.7" }
+ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview", version = "1.6.7" }
 
 swipe = { group = "me.saket.swipe", name = "swipe", version.ref = "swipe" }
 accompanist-pager = { group = "com.google.accompanist", name = "accompanist-pager", version.ref = "pager" }

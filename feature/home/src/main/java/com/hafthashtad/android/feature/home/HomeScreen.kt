@@ -70,7 +70,9 @@ fun HomeScreenContent(
     ) {
         when (uiState) {
             is UiState.Failure -> {
-                HafthashtadFailure(message = uiState.msg)
+                HafthashtadFailure(message = uiState.msg) {
+                    onEventSent.invoke(HomeContract.Event.Refresh)
+                }
             }
 
             UiState.Loading -> {
