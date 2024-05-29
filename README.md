@@ -8,9 +8,7 @@ Hafthashtad App
 # Features
 
 **Hafthashtad** displays content from the
-[Hafthashtad](https://developer.android.com/series/now-in-android) series. Users can browse for
-links to recent videos, articles and other content. Users can also follow topics they are interested
-in, and be notified when new content is published which matches interests they are following.
+[Hafthashtad Products](https://fakestoreapi.com/products) series. Users can browse for content and search in titles.
 
 # Development Environment
 
